@@ -42,7 +42,7 @@ namespace HouseRules.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Chore");
+                    b.ToTable("Chores");
 
                     b.HasData(
                         new
@@ -102,7 +102,7 @@ namespace HouseRules.Migrations
 
                     b.HasIndex("UserProfileId");
 
-                    b.ToTable("ChoreAssignment");
+                    b.ToTable("ChoreAssignments");
 
                     b.HasData(
                         new
@@ -142,14 +142,14 @@ namespace HouseRules.Migrations
 
                     b.HasIndex("UserProfileId");
 
-                    b.ToTable("ChoreCompletion");
+                    b.ToTable("ChoreCompletions");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
                             ChoreId = 1,
-                            CompletedOn = new DateTime(2024, 5, 22, 21, 49, 27, 996, DateTimeKind.Local).AddTicks(5142),
+                            CompletedOn = new DateTime(2024, 5, 23, 9, 51, 12, 0, DateTimeKind.Local).AddTicks(3368),
                             UserProfileId = 1
                         });
                 });
@@ -322,13 +322,13 @@ namespace HouseRules.Migrations
                         {
                             Id = "dbc40bc6-0829-4ac5-a3ed-180f5e916a5f",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8c1aeeb7-8ffd-4c0c-a0fc-e63943e79147",
+                            ConcurrencyStamp = "1b283e9f-586b-496e-bc6f-9fb98b02b10d",
                             Email = "admina@strator.comx",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEGJ/AAuHZDFMizB/Dmw+NiecnGmzJQ8shlouUCWzBd69+7AUZy1VXD68biwCjIM/qA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAENiRSk1lT4whLW8x0vyShe+zcwS5Ve/SnD/p8wI/watuBD+e32V53FTfGZlR61GgKw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b0f5107e-5aa5-4af4-a91c-ae15062f0c8b",
+                            SecurityStamp = "a6ab20a6-d608-44ea-99da-d9c44f9fb3b5",
                             TwoFactorEnabled = false,
                             UserName = "Administrator"
                         });
