@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { register } from "../../managers/authManager";
+
 import { Link, useNavigate } from "react-router-dom";
 import { Button, FormFeedback, FormGroup, Input, Label } from "reactstrap";
+import { register } from "../../managers/authmanager";
 
 export default function Register({ setLoggedInUser }) {
   const [firstName, setFirstName] = useState("");

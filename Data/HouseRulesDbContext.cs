@@ -8,8 +8,11 @@ namespace HouseRules.Data;
 public class HouseRulesDbContext : IdentityDbContext<IdentityUser>
 {
     private readonly IConfiguration _configuration;
- 
+
     public DbSet<UserProfile> UserProfiles { get; set; }
+    public DbSet<Chore> Chores { get; set; }
+    public DbSet<ChoreAssignment> ChoreAssignments { get; set; }
+    public DbSet<ChoreCompletion> ChoreCompletions { get; set; }
 
     public HouseRulesDbContext(DbContextOptions<HouseRulesDbContext> context, IConfiguration config) : base(context)
     {
@@ -49,24 +52,24 @@ public class HouseRulesDbContext : IdentityDbContext<IdentityUser>
             Address = "101 Main Street",
         });
 
-         modelBuilder.Entity<Chore>().HasData(
-                new Chore { Id = 1, Name = "Feeding the Loch Ness Monster", Difficulty = 5, ChoreFrequencyDays = 1 },
-                new Chore { Id = 2, Name = "Prepping the Haggis", Difficulty = 3, ChoreFrequencyDays = 30 },
-                new Chore { Id = 3, Name = "Cleaning the bagpipes", Difficulty = 4, ChoreFrequencyDays = 7 },
-                new Chore { Id = 4, Name = "Cleaning the loch", Difficulty = 4, ChoreFrequencyDays = 90 },
-                new Chore { Id = 5, Name = "Making noodles", Difficulty = 2, ChoreFrequencyDays = 1 }
-            );
+        modelBuilder.Entity<Chore>().HasData(
+               new Chore { Id = 1, Name = "Feeding the Loch Ness Monster", Difficulty = 5, ChoreFrequencyDays = 1 },
+               new Chore { Id = 2, Name = "Prepping the Haggis", Difficulty = 3, ChoreFrequencyDays = 30 },
+               new Chore { Id = 3, Name = "Cleaning the bagpipes", Difficulty = 4, ChoreFrequencyDays = 7 },
+               new Chore { Id = 4, Name = "Cleaning the loch", Difficulty = 4, ChoreFrequencyDays = 90 },
+               new Chore { Id = 5, Name = "Making noodles", Difficulty = 2, ChoreFrequencyDays = 1 }
+           );
 
-            // Seed ChoreAssignments
-            modelBuilder.Entity<ChoreAssignment>().HasData(
-                new ChoreAssignment { Id = 1, UserProfileId = 1, ChoreId = 1 },
-                new ChoreAssignment { Id = 2, UserProfileId = 1, ChoreId = 3 }
-            );
+        // Seed ChoreAssignments
+        modelBuilder.Entity<ChoreAssignment>().HasData(
+            new ChoreAssignment { Id = 1, UserProfileId = 1, ChoreId = 1 },
+            new ChoreAssignment { Id = 2, UserProfileId = 1, ChoreId = 3 }
+        );
 
-            // Seed ChoreCompletions
-            modelBuilder.Entity<ChoreCompletion>().HasData(
-                new ChoreCompletion { Id = 1, UserProfileId = 1, ChoreId = 1, CompletedOn = DateTime.Now }
-            );
-        }
+        // Seed ChoreCompletions
+        modelBuilder.Entity<ChoreCompletion>().HasData(
+            new ChoreCompletion { Id = 1, UserProfileId = 1, ChoreId = 1, CompletedOn = DateTime.Now }
+        );
+    }
 
 }
